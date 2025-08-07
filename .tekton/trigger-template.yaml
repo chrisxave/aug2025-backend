@@ -6,6 +6,7 @@ spec:
   params:
     - name: repo-url
     - name: commit-message
+    - name: image-url
   resourcetemplates:
     - apiVersion: tekton.dev/v1
       kind: PipelineRun
@@ -18,7 +19,7 @@ spec:
           - name: repo-url
             value: $(params.repo-url)
           - name: image-url
-            value: quay.io/rh-ee-csuryant/aug2025-poc/fastapi-backend:latest
+            value: $(params.image-url)
         workspaces:
           - name: shared-data
             volumeClaimTemplate:
