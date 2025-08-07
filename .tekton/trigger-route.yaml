@@ -1,0 +1,15 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: fastapi-backend-trigger
+  namespace: aug2025-poc
+spec:
+  to:
+    kind: Service
+    name: el-fastapi-backend-listener
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+  wildcardPolicy: None
+

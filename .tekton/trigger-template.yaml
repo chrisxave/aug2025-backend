@@ -1,0 +1,32 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: backend-trigger-template
+spec:
+  params:
+    - name: repo-url
+    - name: commit-message
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1
+      kind: PipelineRun
+      metadata:
+        generateName: backend-ci-run-
+      spec:
+        pipelineRef:
+          name: backend-ci-pipeline
+        params:
+          - name: repo-url
+            value: $(params.repo-url)
+          - name: image-url
+            value: quay.io/rh-ee-csuryant/aug2025-poc/fastapi-backend:latest
+        workspaces:
+          - name: shared-data
+            volumeClaimTemplate:
+              metadata:
+                name: backend-pvc
+              spec:
+                accessModes: [ "ReadWriteOnce" ]
+                resources:
+                  requests:
+                    storage: 1Gi
+
