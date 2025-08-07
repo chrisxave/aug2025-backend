@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: fastapi
-          image: quay.io/rh-ee-csuryant/aug2025-poc:latest
+          image: quay.io/rh-ee-csuryant/aug2025-poc/fastapi-backend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
