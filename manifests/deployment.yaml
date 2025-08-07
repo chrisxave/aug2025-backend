@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fastapi-backend
-  namespace: aug2025-backend
+  namespace: aug2025-poc
   labels:
     app: fastapi-backend
 spec:

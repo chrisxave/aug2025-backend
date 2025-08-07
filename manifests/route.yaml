@@ -2,7 +2,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: fastapi-backend
-  namespace: aug2025-backend
+  namespace: aug2025-poc
 spec:
   to:
     kind: Service
