@@ -1,0 +1,14 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: fastapi-backend
+  namespace: aug2025-backend
+spec:
+  to:
+    kind: Service
+    name: fastapi-backend
+  port:
+    targetPort: 8000
+  tls:
+    termination: edge
+
